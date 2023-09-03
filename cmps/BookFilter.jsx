@@ -51,8 +51,8 @@ export function BookFilter({ filterBy, onSetFilterBy }) {
         <section className="book-filter">
             <h2>Filter Our Books</h2>
             <form onSubmit={onSubmitFilter}>
-                <label htmlFor="txt">Vendor: </label>
-                <input value={txt} onChange={handleChange} type="text" placeholder="By Vendor" id="txt" name="txt" />
+                <label htmlFor="txt">Text: </label>
+                <input value={txt} onChange={handleChange} type="text" placeholder="By Name" id="txt" name="txt" />
 
                 <label htmlFor="price">Price: </label>
                 <input value={price} onChange={handleChange} type="number" placeholder="By Price" id="price" name="price" />

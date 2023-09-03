@@ -57,16 +57,17 @@ function _createBooks() {
     let books = utilService.loadFromStorage(KEY)
     if (!books || !books.length) {
         books = []
-        books.push(_createBook('metus hendrerit', 300))
-        books.push(_createBook('metus hendrerit', 120))
-        books.push(_createBook('metus hendrerit', 50))
-        books.push(_createBook('metus hendrerit', 150))
+        books.push(_createBook('metus hendrerit', 300,'../BooksImages/1.jpg'))
+        books.push(_createBook('metus hendrerit', 120,'../BooksImages/2.jpg'))
+        books.push(_createBook('metus hendrerit', 50,'../BooksImages/3.jpg'))
+        books.push(_createBook('metus hendrerit', 150,'../BooksImages/4.jpg'))
         utilService.saveToStorage(KEY, books)
     }
 }
 
-function _createBook(vendor, price = 250) {
+function _createBook(vendor, price = 250, imageLink) {
     const book = getEmptyBook(vendor, price)
     book.id = utilService.makeId()
+    book.thumbnail = imageLink
     return book
 }

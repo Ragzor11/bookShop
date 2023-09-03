@@ -1,6 +1,6 @@
 import { BookFilter } from "../cmps/BookFilter.jsx"
 import { BookList } from "../cmps/BookList.jsx"
-import { BookService, bookService } from "../services/book-service.js"
+import { bookService } from "../services/book-service.js"
 import { BookDetails } from "./BookDetails.jsx"
 
 const { useState, useEffect } = React
@@ -45,7 +45,7 @@ export function BookIndex() {
                 </React.Fragment>
             }
 
-            {selectedBookId && <BookDetails onBack={() => onSelectBookId(null)} BookId={selectedBookId} />}
+            {selectedBookId && <BookDetails onBack={() => onSelectBookId(null)} bookId={selectedBookId} />}
         </section>
     )
 }

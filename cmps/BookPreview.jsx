@@ -1,9 +1,10 @@
 export function BookPreview({ book }) {
+    console.log(book)
     return (
         <article className="book-preview">
             <h2>Book Title: {book.title}</h2>
-            <h4>Book.price: {book.listPrice.amount}</h4>
-            <img src={`../BooksImages/${book.title}.png`} alt="" />
+            <h4>Book Price: {book.listPrice.amount}</h4>
+            <img src={book.thumbnail} alt="" />
         </article>
     )
 }
