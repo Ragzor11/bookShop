@@ -1,6 +1,6 @@
 import { CarFilter } from "../cmps/CarFilter.jsx"
 import { CarList } from "../cmps/CarList.jsx"
-import { carService } from "../services/car.service.js"
+import { carService } from "../services/book-service.js"
 import { CarDetails } from "./CarDetails.jsx"
 
 const { useState, useEffect } = React
@@ -15,7 +15,6 @@ export function CarIndex() {
     useEffect(() => {
         console.log('mount')
         carService.query(filterBy).then(cars => setCars(cars))
-        // carService.query().then(setCars)
     }, [filterBy])
 
     function onRemoveCar(carId) {
