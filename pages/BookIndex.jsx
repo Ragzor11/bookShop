@@ -1,25 +1,25 @@
-import { CarFilter } from "../cmps/CarFilter.jsx"
-import { CarList } from "../cmps/CarList.jsx"
-import { carService } from "../services/book-service.js"
-import { CarDetails } from "./BookDetails.jsx"
+import { BookFilter } from "../cmps/BookFilter.jsx"
+import { BookList } from "../cmps/BookList.jsx"
+import { BookService, bookService } from "../services/book-service.js"
+import { BookDetails } from "./BookDetails.jsx"
 
 const { useState, useEffect } = React
 
 
-export function CarIndex() {
+export function BookIndex() {
 
-    const [cars, setCars] = useState(null)
-    const [filterBy, setFilterBy] = useState(carService.getDefaultFilter())
-    const [selectedCarId, setSelectedCarId] = useState(null)
+    const [books, setBooks] = useState(null)
+    const [filterBy, setFilterBy] = useState(bookService.getDefaultFilter())
+    const [selectedBookId, setSelectedBookId] = useState(null)
 
     useEffect(() => {
         console.log('mount')
-        carService.query(filterBy).then(cars => setCars(cars))
+        bookService.query(filterBy).then(books => setBooks(books))
     }, [filterBy])
 
-    function onRemoveCar(carId) {
-        carService.remove(carId).then(() => {
-            setCars(prevCars => prevCars.filter(car => car.id !== carId))
+    function onRemoveBook(bookId) {
+        bookService.remove(bookId).then(() => {
+            setBooks(prevBooks => prevBooks.filter(book => book.id !== bookId))
         })
     }
 
@@ -28,24 +28,24 @@ export function CarIndex() {
         setFilterBy(prevFilter => ({ ...prevFilter, ...filterBy }))
     }
 
-    function onSelectCarId(carId) {
-        setSelectedCarId(carId)
+    function onSelectBookId(bookId) {
+        setSelectedBookId(bookId)
     }
 
 
 
     console.log('render')
-    if (!cars) return <div>Loading...</div>
+    if (!books) return <div>Loading...</div>
     return (
-        <section className="car-index">
-            {!selectedCarId &&
+        <section className="book-index">
+            {!selectedBookId &&
                 <React.Fragment>
-                    <CarFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
-                    <CarList cars={cars} onRemoveCar={onRemoveCar} onSelectCarId={onSelectCarId} />
+                    <BookFilter filterBy={filterBy} onSetFilterBy={onSetFilterBy} />
+                    <BookList books={books} onRemoveBook={onRemoveBook} onSelectBookId={onSelectBookId} />
                 </React.Fragment>
             }
 
-            {selectedCarId && <CarDetails onBack={() => onSelectCarId(null)} carId={selectedCarId} />}
+            {selectedBookId && <BookDetails onBack={() => onSelectBookId(null)} BookId={selectedBookId} />}
         </section>
     )
 }
