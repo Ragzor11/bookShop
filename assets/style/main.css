@@ -9,6 +9,7 @@
 @import "base/forms.css";
 
 /* Pages */
+@import url(pages/home.css);
 
 /* Components */
 @import "cmps/app-header.css";

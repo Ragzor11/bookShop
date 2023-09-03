@@ -1,12 +1,20 @@
 .app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     background-color: var(--clr1);
     color: var(--clr1bg-light);
-    
+}
+.app-header h1{
+    margin-inline-start: 20px;
 }
 
-.app-nav {
+.app-header .app-nav {
+    font-weight: 600;
+    font-size: 1.2rem;
     display: flex;
     gap: 15px;
+    margin-inline-end: 20px;
 }
 
 
