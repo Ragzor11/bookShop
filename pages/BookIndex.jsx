@@ -1,7 +1,7 @@
 import { CarFilter } from "../cmps/CarFilter.jsx"
 import { CarList } from "../cmps/CarList.jsx"
 import { carService } from "../services/book-service.js"
-import { CarDetails } from "./CarDetails.jsx"
+import { CarDetails } from "./BookDetails.jsx"
 
 const { useState, useEffect } = React
 
